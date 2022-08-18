@@ -20,14 +20,12 @@ GameObject itemCollide = other.gameObject;
 
 
 
-Debug.Log(itemCollide.name);
 
 
-/* 
-if (itemCollide.transform.parent.GetComponent<PlayerSize>() != null)
+if (itemCollide.transform.parent.GetComponentInParent<PlayerSize>() != null)
 {
     Debug.Log("tiene encogedor");
-} else {Debug.Log("chau");} */
+} else {Debug.Log(itemCollide.name);}
 
 
 }
@@ -45,8 +43,10 @@ private void OnCollisionStay(Collision other) {
 
             if (timeInWall >= cooldown){
                 transform.position = newlocation.position;
-                transform.Rotate(0, 90, 0);
+                other.gameObject.transform.Rotate(0, 90, 0);
                 }
+
+        
 
                
 
